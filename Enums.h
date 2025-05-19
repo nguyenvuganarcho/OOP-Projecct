@@ -4,6 +4,6 @@
 enum class AbilityType {Splash, Stun, Poison};
 enum class ResistanceType {None, Physical, Magical};
 enum class Difficulty {Easy, Medium, Hard};
-enum class GameState {MainMenu, HubWorld, Battle, Inventory, GameOver};
+enum class GameState {MainMenu, HubWorld, BeforeFight, Battle, Inventory, GameOver};
 #endif 
 
