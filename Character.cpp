@@ -2,20 +2,17 @@
 #include <iostream>
 using namespace std;
 
-Character::Character(string name, int maxHp) : 
-    name(name), 
-    isDefending(false),
-    isPoisoned(false), 
-    poisonTurns(0), 
-    poisonDamage(0), 
-    isStunned(false),
-    health(maxHp),
-    maxHealth(maxHp) {}
+Character::Character(string name, int maxHp) : name(name), maxHealth(maxHp), health(maxHp), isDefending(false), 
+    isPoisoned(false), poisonTurns(0), poisonDamage(0), isStunned(false) {}
 
 void Character::takeDamage(int amount) {
-    if (isDefending) amount = 0;
+    if (isDefending) {
+    amount = 0;
+    isDefending = false;
+    }
     health -= amount;
-    if (health < 0) health = 0;
+    if (health < 0) { health = 0;}
+    cout << getName() << " takes " << amount << " damage! Health: " << health << "/" << maxHealth << endl;
 }
 
 bool Character::isAlive() const {
@@ -65,6 +62,6 @@ string Character::getName() const {
     return name;
 }
 
-void Character::setHealth(int newHp) {
-    health = newHp;
+void Character::setHealth(int hp) {
+    health = hp;
 }
